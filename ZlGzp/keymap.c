@@ -345,10 +345,16 @@ tap_dance_action_t tap_dance_actions[] = {
 
 
 // Custom QMK here
-const key_override_t shift_dot_to_greater_than = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, S(KC_COMMA));
+const key_override_t shift_minus_to_double_quote = ko_make_with_layers(MOD_MASK_SHIFT, KC_MINUS, S(KC_QUOTE), 1);
+const key_override_t shift_slash_to_less_than = ko_make_with_layers(MOD_MASK_SHIFT, KC_SLASH, S(KC_COMMA), 1);
+const key_override_t shift_comma_to_question_mark = ko_make_with_layers(MOD_MASK_SHIFT, KC_COMMA, S(KC_SLASH), 1);
+const key_override_t shift_quote_to_underline = ko_make_with_layers(MOD_MASK_SHIFT, KC_QUOTE, S(KC_MINUS), 1);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
-	&shift_dot_to_greater_than,
+	&shift_minus_to_double_quote,
+        &shift_slash_to_less_than,
+        &shift_comma_to_question_mark,
+        &shift_quote_to_underline,
 	NULL
 };
 
