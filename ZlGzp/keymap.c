@@ -345,7 +345,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 
 // Custom QMK here
-const key_override_t shift_dot_to_greater_than = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COMMA);
+const key_override_t shift_dot_to_greater_than = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, S(KC_COMMA));
 
 const key_override_t **key_overrides = (const key_override_t *[]){
 	&shift_dot_to_greater_than,
