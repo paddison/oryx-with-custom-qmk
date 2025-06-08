@@ -6,6 +6,5 @@ RGB_MATRIX_CUSTOM_KB = yes
 SPACE_CADET_ENABLE = no
 COMBO_ENABLE = yes
 
-
 # Custom QMK here
 KEY_OVERRIDE_ENABLE = yes
