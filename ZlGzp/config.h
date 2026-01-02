@@ -2,7 +2,7 @@
 #define TAPPING_TERM 220
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "ZlGzp/3v0VmW"
+#define SERIAL_NUMBER "ZlGzp/dPoqMx"
 #define LAYER_STATE_8BIT
 
 #define RGB_MATRIX_STARTUP_SPD 60
