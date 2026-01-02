@@ -270,7 +270,7 @@ const key_override_t shift_comma_to_question_mark =
 const key_override_t shift_quote_to_underline =
     ko_make_with_layers(MOD_MASK_SHIFT, KC_QUOTE, S(KC_MINUS), 1);
 
-const key_override_t **key_overrides = (const key_override_t *[]){
+const key_override_t *key_overrides[] = (const key_override_t *[]){
     &shift_minus_to_double_quote, &shift_slash_to_less_than,
     &shift_comma_to_question_mark, &shift_quote_to_underline, NULL};
 
