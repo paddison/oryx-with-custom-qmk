@@ -1,3 +1,4 @@
+// clang-format off
 #include QMK_KEYBOARD_H
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
@@ -9,12 +10,12 @@ enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
 };
 
-#define DUAL_FUNC_0 LT(6, KC_I)
-#define DUAL_FUNC_1 LT(11, KC_5)
-#define DUAL_FUNC_2 LT(5, KC_Y)
-#define DUAL_FUNC_3 LT(6, KC_F21)
-#define DUAL_FUNC_4 LT(11, KC_7)
-#define DUAL_FUNC_5 LT(4, KC_P)
+#define DUAL_FUNC_0 LT(4, KC_M)
+#define DUAL_FUNC_1 LT(5, KC_I)
+#define DUAL_FUNC_2 LT(14, KC_F5)
+#define DUAL_FUNC_3 LT(12, KC_L)
+#define DUAL_FUNC_4 LT(9, KC_C)
+#define DUAL_FUNC_5 LT(9, KC_F6)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_voyager(
@@ -106,6 +107,10 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
            {145, 57, 250}, {145, 57, 250}, {145, 57, 250}, {145, 57, 250},
            {145, 57, 250}, {145, 57, 250}, {145, 57, 250}, {145, 57, 250}},
 
+    [4] = { {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250}, {145,57,250} },
+
+    [5] = { {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248}, {139,131,248} },
+
 };
 
 void set_layer_color(int layer) {
@@ -130,13 +135,19 @@ bool rgb_matrix_indicators_user(void) {
   }
   if (!keyboard_config.disable_layer_led) {
     switch (biton32(layer_state)) {
-    case 0:
-      set_layer_color(0);
-      break;
-    default:
-      if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
-        rgb_matrix_set_color_all(0, 0, 0);
-      }
+      case 0:
+        set_layer_color(0);
+        break;
+      case 4:
+        set_layer_color(4);
+        break;
+      case 5:
+        set_layer_color(5);
+        break;
+     default:
+        if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
+          rgb_matrix_set_color_all(0, 0, 0);
+        }
     }
   } else {
     if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
@@ -262,3 +273,5 @@ const key_override_t shift_quote_to_underline =
 const key_override_t **key_overrides = (const key_override_t *[]){
     &shift_minus_to_double_quote, &shift_slash_to_less_than,
     &shift_comma_to_question_mark, &shift_quote_to_underline, NULL};
+
+// clang-format on
